@@ -1,0 +1,44 @@
+enabled: true
+
+policies:
+  allow_all:
+    enabled: false
+
+  pii_guard:
+    enabled: true
+
+  profanity_filter:
+    enabled: true
+    blocked_words:
+      - damn
+      - hell
+      - badword1
+      - badword2
+
+  redline_blocker:
+    enabled: true
+    rules:
+      - "confidential"
+      - "do not share"
+
+  time_window:
+    enabled: true
+    allowed_hours:
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+
+compliance_profiles:
+  HIPAA:
+    - pii_guard
+    - time_window
+
+  GDPR:
+    - pii_guard
+    - redline_blocker
